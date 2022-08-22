@@ -86,7 +86,7 @@ handleCloseForm()
                <input className="form__field w-100" {...register('birthday')} type="date" placeholder='Birthday' id="birthday" />
                <label className="form__label" htmlFor="birthday">Birthday:</label>
             </div>
-           <div className="btns">
+            <div className="btns btnsMediaQuery">
                <button>{updateInfo ? 'Update' : 'Create'}</button>
                <button onClick={handleCloseForm}>Cancel</button>
            </div>

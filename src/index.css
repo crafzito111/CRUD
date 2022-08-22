@@ -100,3 +100,17 @@ input {
 
 }
 
+
+@media (max-width: 582px) {
+ .btnsMediaQuery {
+   height: 100px;
+  
+   display: flex;
+   flex-direction: column;
+ }
+
+ .btnsMediaQuery button {
+   width: 100%;
+   
+ }
+}
