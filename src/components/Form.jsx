@@ -12,7 +12,8 @@ const defaultValue = {
 };
 
 
-const Form = ({ getAllUsers, updateInfo, handleCloseForm }) => {
+const Form = ({ getAllUsers, updateInfo, handleCloseForm, setUpdateInfo }) => {
+
     useEffect(() => {
         if (updateInfo) {
             reset(updateInfo);
@@ -21,7 +22,7 @@ const Form = ({ getAllUsers, updateInfo, handleCloseForm }) => {
  
    const { register, reset, handleSubmit } = useForm();
 
-   const CreateUser = (data) => {
+   const CreateUser = data => {
       const URL = `https://users-crud1.herokuapp.com/users/`;
       axios
          .post(URL, data)
@@ -30,11 +31,11 @@ const Form = ({ getAllUsers, updateInfo, handleCloseForm }) => {
             getAllUsers();
          })
          .catch((err) => console.log(err.response.data));
-      reset(defaultValue);
+    
    };
 
    const updateUser = data => {
-       const URL = `https://users-crud1.herokuapp.com/users/${data.id}/`;
+       const URL = `https://users-crud1.herokuapp.com/users/${updateInfo.id}/`;
        axios.patch(URL, data)
        .then(res => {
      
@@ -47,12 +48,12 @@ const Form = ({ getAllUsers, updateInfo, handleCloseForm }) => {
 if(updateInfo){
 // Update user
 updateUser(data)
-
+   setUpdateInfo()
 } else {
     // Create User
     CreateUser(data);
-}
-reset(defaultValue)
+   }
+   reset(defaultValue)
 handleCloseForm()
 }
 

@@ -37,7 +37,7 @@ function App() {
 </div>
        
        <div  className={isFormOpen ? 'form_container' : 'form_none'}>
-         <Form getAllUsers={getAllUsers} updateInfo={updateInfo} handleCloseForm={handleCloseForm} />
+            <Form getAllUsers={getAllUsers} updateInfo={updateInfo} handleCloseForm={handleCloseForm} setUpdateInfo={setUpdateInfo}/>
       </div>
         <div className='App_Card'>
          {users?.map((user) => (

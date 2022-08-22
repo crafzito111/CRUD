@@ -7,7 +7,6 @@ const deleteUser = data => {
   const URL = `https://users-crud1.herokuapp.com/users/${user.id}/`;
   axios.delete(URL, data)
     .then(res => {
-  
       getAllUsers()
     })
   .catch(err => console.log(err))
